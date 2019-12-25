@@ -1,0 +1,78 @@
+{% include 'hdms_Doctorhome.html' %}
+<br><br>
+<table align="center">
+    {% for x in data %}
+    <tr>
+        <th>
+            <h1 style="color:red"align="center">Update_My_Profile</h1>
+        </th>
+    </tr>
+        <form action="{% url 'saveupdtonedoc' %}"method="post">
+        {% csrf_token %}
+
+    <tr>
+        <th><label style="color: white">DOCTOR_ID :</label>
+            <input type="number"value="{{ x.Doctor_id  }}" name="d_id"readonly>
+        </th>
+    </tr>
+            <tr>
+        <th><label style="color: white">DOCTOR_NAME :</label>
+            <input type="text"value="{{ x.Doctor_name }}" name="d_name"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DESIGNATION :</label>
+            <input type="text"value="{{ x.Designation }}" name="d_deg"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">LOGIN_NAME :</label>
+            <input type="text"value="{{ x.Login_name}}" name="d_loginname"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">PASSWORD :</label>
+            <input type="text"value="{{ x.password }}" name="d_password"required>
+        </th>
+    </tr>
+
+    <tr>
+        <th><label style="color: white">DATE_OF_JOIN :</label>
+            <input type="date" value="{{ x.Date_of_joining }}" name="d_joindate"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">CONTACT :</label>
+            <input type="number" value="{{ x.Contact }}" name="d_contact" max="9999999999"min="6666666666" required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">EMAIL :</label>
+            <input type="email"value="{{ x.Email }}" name="d_email"required>
+        </th>
+    </tr>
+            <tr>
+        <th><label style="color: white">TYPE :</label>
+            <select name="d_type">
+                <option >Employee</option>
+                <option >Doctor</option>
+                <option >Finance Department</option>
+            </select>
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+         <th>
+            <button type="reset">RESET</button>
+        </th>
+
+    </tr>
+        </form>
+    {% endfor %}
+{% if msg %}
+    <h4 align="center" style="color: red"> {{ msg }}</h4>
+{% endif %}
+</table>

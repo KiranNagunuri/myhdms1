@@ -1,0 +1,59 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<table align="center">
+    <tr>
+        <form action="{% url 'getupdate_device' %}"method="post">
+            {% csrf_token %}
+        <th style="color:coral">
+            FINANCE_DEPT_ID :<input type="number"placeholder="Enter Device_id"name="id"required>
+        </th>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+        </form>
+
+    </tr>
+    </table>
+    <br><br><br><br>
+    <tr>
+        <th>
+            <a href="{% url 'view_devicelist' %}">
+                <h4 align="center" style="color:lavenderblush">VIEW AVAILABLE DEVICES</h4>
+            </a>
+        </th>
+    </tr>
+   <br><br>
+{% if object_list %}
+   <table align="center" border="4"bgcolor="#90ee90">
+    <tr>
+     <th width="100"style="background:red">DEVICE_ID</th>
+     <th width="100" style="background:red">DEVICE_NAME</th>
+     <th width="100" style="background:red">DATE_OF_PURCHASE</th>
+     <th width="100" style="background:red">COST_OF_DEVICE</th>
+     <th width="100" style="background:red">TOTAL_DEVICE</th>
+ </tr>
+    {% for x in object_list %}
+
+    <tr>
+        <th>
+            {{ x.Device_id }}
+        </th>
+        <th>
+            {{ x.Device_name }}
+        </th>
+        <th>
+            {{ x.Date_Of_Purchase}}
+        </th>
+
+    <th>
+            {{ x.Cost_Of_Devices}}
+        </th>
+
+    <th>
+            {{ x.Total_Devices}}
+        </th>
+
+    </tr>
+{% endfor %}
+</table>
+{% endif %}

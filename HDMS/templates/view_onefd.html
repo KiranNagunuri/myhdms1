@@ -1,0 +1,42 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<h1 align="center"style="color: orange"> My_Profile</h1>
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">FD_ID</th>
+     <th width="100" style="background:red">FD_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+
+
+ </tr>
+    <tr>
+        <th>
+            {{ data.Fd_id }}
+        </th>
+        <th>
+            {{ data.Fd_name }}
+        </th>
+        <th>
+            {{ data.Fd_contact}}
+        </th>
+
+    <th>
+            {{ data.Fd_loginname}}
+        </th>
+    <th>
+            {{ data.Fd_password }}
+        </th>
+    <th>
+            {{ data.Fd_doj}}
+        </th>
+    <th>
+            {{ data.Fd_email}}
+        </th>
+
+    </tr>
+
+   </table>

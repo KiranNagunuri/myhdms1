@@ -1,0 +1,54 @@
+{% include 'hdms_Doctorhome.html' %}
+<br><br>
+<h2 align="center"style="color: red">ALLOCATE DEVICES</h2>
+<br><br>
+{% if dd %}
+<table align="center">
+    <form action="{% url 'showdev' %}"method="post">
+        {% csrf_token %}
+
+    <tr>
+        <th>
+            <input type="number"placeholder="Enter your id number" value="{{dd.DOCTOR_ID}}" name="doc_id"required hidden readonly>
+        </th>
+        <th>
+
+            <button type="submit">Show Your Devices</button>
+        </th>
+    </tr>
+    </form>
+
+</table>
+{% endif %}
+
+
+{% if d %}
+    <table align="center" bgcolor="green" width="1000">
+    <tr bgcolor="red">
+        <th> DA_ID </th>
+        <th>DOCTOR_ID </th>
+        <th>DOCTOR_NAME </th>
+        <th>DEVICE_ID </th>
+        <th>DEVICE_NAME </th>
+    </tr>
+        {% for x in d %}
+    <tr>
+        <th>{{ x.DD_ID }}</th>
+        <th>{{ x.DOCTOR_ID }}</th>
+        <th>{{ x.DOCTOR_NAME }}</th>
+        <th>{{ x.DEVICE_ID }}</th>
+        <th>{{ x.DEVICE_NAME }}</th>
+    </tr>
+     {% endfor %}
+
+    </table>
+     {% endif %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+{% include 'hdms_Doctorhome.html' %}
+<br><br>
+<h1 align="center" style="color: orange">SEND REQUEST FOR DEVICE</h1>
+<br>
+{% if did %}
+<table align="center" style="color: lavenderblush">
+<form action="{% url 'savereq' %}"method="post">
+    {% csrf_token %}
+
+    <tr>
+        <th><label>DR_ID :</label>
+            <input type="number"placeholder="doctor_req_id"name="drid"required>
+        </th>
+    </tr>
+
+    <tr>
+        <th><label>DEVICE_ID :</label>
+            <input type="number"value="{{ did.Device_id }}" name="device_id"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><label>DEVICE_NAME :</label>
+            <input type="text"value="{{ did.Device_name }}" name="device_name"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="number"placeholder="status_id"name="status" value="1" readonly hidden required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button type="submit">SEND</button>
+        </th>
+    </tr>
+    </form>
+<tr>
+    <th>
+        <a href="{% url 'req_cancel' %}">
+            <button type="submit">CANCEL</button>
+        </a>
+    </th>
+</tr>
+
+</table>
+{% endif %}

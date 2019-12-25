@@ -1,0 +1,46 @@
+{% include 'hdms_Doctorhome.html' %}
+<br><br>
+<h1 align="center"style="color: orange"> My_Profile</h1>
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">DOCTOR_ID</th>
+     <th width="100" style="background:red">DOCTOR_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">DESIGNATION</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+
+
+
+
+ </tr>
+    <tr>
+        <th>
+            {{ data.Doctor_id }}
+        </th>
+        <th>
+            {{ data.Doctor_name }}
+        </th>
+        <th>
+            {{ data.Contact }}
+        </th>
+        <th>
+            {{ data.Designation }}
+        </th>
+    <th>
+            {{ data.Login_name}}
+        </th>
+    <th>
+            {{ data.password }}
+        </th>
+    <th>
+            {{ data.Date_of_joining}}
+        </th>
+    <th>
+            {{ data.Email }}
+        </th>
+    </tr>
+
+   </table>

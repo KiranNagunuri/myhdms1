@@ -1,0 +1,64 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<table align="center">
+    <tr>
+        <form action="{% url 'getupdate_emp' %}"method="post">
+            {% csrf_token %}
+        <th style="color:coral">
+            EMP_ID :<input type="number"placeholder="Enter Emp_id"name="id"required>
+        </th>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+        </form>
+
+    </tr>
+    </table>
+    <br><br><br><br>
+    <tr>
+        <th>
+            <a href="{% url 'view_emplist' %}">
+                <h4 align="center" style="color:lavenderblush">VIEW ALL Employees LIST</h4>
+            </a>
+        </th>
+    </tr>
+   <br><br>
+{% if object_list %}
+   <table align="center" border="4"bgcolor="#90ee90">
+    <tr>
+     <th width="100"style="background:red">EMP_ID</th>
+     <th width="100" style="background:red">EMP_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+ </tr>
+    {% for x in object_list %}
+    <tr>
+    <th>
+        {{ x.Emp_id }}
+    </th>
+    <th>
+        {{ x.Emp_name }}
+    </th>
+    <th>
+        {{ x.Emp_contact }}
+    </th>
+    <th>
+        {{ x.Emp_loginname}}
+    </th>
+    <th>
+            {{ x.Emp_password}}
+        </th>
+    <th>
+        {{ x.Emp_doj }}
+    </th>
+    <th>
+        {{ x.Emp_email}}
+    </th>
+
+    </tr>
+{% endfor %}
+</table>
+{% endif %}

@@ -1,0 +1,45 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<h1 align="center"style="color: orange">ADD DEVICE</h1>
+<br>
+<table align="center" style="color: lavenderblush">
+<form action="{% url 'savedevice' %}" method="post">
+    {% csrf_token %}
+    <tr>
+        <th><label>DEVICE_ID :</label>
+            <input type="number"placeholder="device_id"name="device_id"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label>DEVICE_NAME :</label>
+            <input type="text"placeholder="device_name"name="device_name"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label>DATE_OF_PURCHASE :</label>
+            <input type="date"placeholder="date_of_purchase"name="device_dop"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label> COST_OF_DEVICE :</label>
+            <input type="number"placeholder="cost_of_device"name="device_cost"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label> TOTAL_DEVICES</label>
+            <input type="number"placeholder="total_devices"name="devices_total"required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button type="submit">ADD DEVICE</button>
+        </th>
+        <th>
+            <button type="reset">RESET</button>
+        </th>
+    </tr>
+</form>
+    {% if msg %}
+    <h4 align="center" style="color: lavenderblush">{{ msg }}</h4>
+    {% endif %}
+</table>

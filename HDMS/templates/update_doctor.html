@@ -1,0 +1,68 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<table align="center">
+    <tr>
+        <form action="{% url 'getupdatedoctor' %}"method="post">
+            {% csrf_token %}
+        <th style="color:coral">
+            DOCTOR_ID :<input type="number"placeholder="Enter Doctor_id"name="id"required>
+        </th>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+        </form>
+
+    </tr>
+    </table>
+    <br><br><br><br>
+    <tr>
+        <th>
+            <a href="{% url 'view_doctorlist' %}">
+                <h4 align="center" style="color:lavenderblush">VIEW ALL DOCTORS LIST</h4>
+            </a>
+        </th>
+    </tr>
+   <br><br>
+{% if object_list %}
+   <table align="center" border="4"bgcolor="#90ee90">
+    <tr>
+     <th width="100"style="background:red">DOCTOR_ID</th>
+     <th width="100" style="background:red">DOCTOR_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">DESIGNATION</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+ </tr>
+    {% for x in object_list %}
+    <tr>
+    <th>
+        {{ x.Doctor_id }}
+    </th>
+    <th>
+        {{ x.Doctor_name }}
+    </th>
+    <th>
+        {{ x.Contact }}
+    </th>
+    <th>
+        {{ x.Designation }}
+    </th>
+    <th>
+        {{ x.Login_name }}
+    </th>
+        <th>
+            {{ x.password }}
+        </th>
+    <th>
+        {{ x.Date_of_joining }}
+    </th>
+    <th>
+        {{ x.Email}}
+    </th>
+
+    </tr>
+{% endfor %}
+</table>
+{% endif %}

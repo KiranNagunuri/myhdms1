@@ -1,0 +1,43 @@
+{% include 'hdms_Emphome.html' %}
+<br><br>
+<h1 align="center"style="color: orange"> My_Profile</h1>
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">EMP_ID</th>
+     <th width="100" style="background:red">EMP_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+
+
+
+
+ </tr>
+    <tr>
+        <th>
+            {{ data.Emp_id }}
+        </th>
+        <th>
+            {{ data.Emp_name }}
+        </th>
+        <th>
+            {{ data.Emp_contact }}
+        </th>
+
+    <th>
+            {{ data.Emp_loginname}}
+        </th>
+    <th>
+            {{ data.Emp_password }}
+        </th>
+    <th>
+            {{ data.Emp_doj}}
+        </th>
+    <th>
+            {{ data.Emp_email }}
+        </th>
+    </tr>
+
+   </table>

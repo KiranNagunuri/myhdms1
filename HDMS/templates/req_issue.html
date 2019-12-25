@@ -1,0 +1,39 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<h3 align="center"style="color: red">Request Issue From Doctor</h3>
+{% if dr %}
+    <h5 align="center"style="color: deepskyblue">STATUS_ID : 1-PENDING/ 2-FORWARDED/3-DEVICE_ALLOCATED/4-REJECTED</h5>
+<table align="center" border="4"style="color: white" width="1000">
+    <tr bgcolor="red">
+        <th>DR_ID</th>
+        <th>DOCTOR_ID</th>
+        <th>DOCTOR_NAME</th>
+        <th>DEVICE_ID</th>
+        <th>DEVICE_NAME</th>
+        <th>STATUS</th>
+        <th>FORWARED</th>
+        <th>REJECT</th>
+    </tr>
+{% for x in dr %}
+    <tr bgcolor="green">
+        <th>{{ x.DR_ID}}</th>
+        <th>{{ x.DOCTOR_ID }}</th>
+        <th>{{ x.DOCTOR_NAME }}</th>
+        <th>{{ x.DEVICE_ID }}</th>
+        <th>{{ x.DEVICE_NAME }}</th>
+        <th>{{ x.STATUS_ID }}</th>
+        <th>
+            <a href="{% url "forward" x.DR_ID %}">
+            Forward
+            </a>
+        </th>
+        <th><a href="{% url "reject" x.DR_ID %}">
+            Reject
+        </a>
+        </th>
+    </tr>
+{% endfor %}
+</table>
+    {% else %}
+    <h4 align="center" style="color: red">{{ msg }}</h4>
+{% endif %}

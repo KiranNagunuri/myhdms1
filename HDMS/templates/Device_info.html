@@ -1,0 +1,42 @@
+{% include "hdms_adminhome.html" %}
+<br><br>
+<h4 align="center"style="color: orange">View Devices Information</h4>
+<br>
+{% if Devices %}
+ <table align="center" border="5" width="1000" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">DEVICE_ID</th>
+     <th width="100" style="background:red">DEVICE_NAME</th>
+     <th width="100" style="background:red">DATE_OF_PURCHASE</th>
+     <th width="100" style="background:red">COST_OF_DEVICES</th>
+     <th width="100" style="background:red">TOTAL_DEVICES</th>
+
+
+
+
+ </tr>
+{% for x in Devices %}
+
+    <tr>
+        <th>
+            {{ x.Device_id }}
+        </th>
+        <th>
+            {{ x.Device_name }}
+
+    <th>
+            {{ x.Date_Of_Purchase}}
+        </th>
+    <th>
+            {{ x.Cost_Of_Devices }}
+        </th>
+        <th>
+            {{ x.Total_Devices }}
+        </th>
+
+    </tr>
+  {% endfor %}
+   </table>
+{% else %}
+    <h2 align="center" style="color: white">NO DEVICES ARE AVAILABLE</h2>
+{% endif %}

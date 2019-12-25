@@ -1,0 +1,51 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<h4 align="center"style="color: orange">View/Delete Employee</h4>
+<br>
+{% if Employee %}
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">EMP_ID</th>
+     <th width="100" style="background:red">EMP_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+     <th width="100" style="background:red">DELETE</th>
+
+ </tr>
+{% for x in Employee %}
+
+    <tr>
+        <th>
+            {{ x.Emp_id }}
+        </th>
+        <th>
+            {{ x.Emp_name }}
+        </th>
+        <th>
+            {{ x.Emp_contact}}
+        </th>
+
+    <th>
+            {{ x.Emp_loginname}}
+        </th>
+    <th>
+            {{ x.Emp_password }}
+        </th>
+    <th>
+            {{ x.Emp_doj}}
+        </th>
+    <th>
+            {{ x.Emp_email}}
+        </th>
+    <th style="background:lightgreen">
+        <a href="{% url 'del_emp'  x.Emp_id  %}" >Delete</a>
+    </th>
+    </tr>
+{% endfor %}
+   </table>
+{% else %}
+    <h2 align="center">NO EMPLOYEES ARE AVAILABLE</h2>
+{% endif %}

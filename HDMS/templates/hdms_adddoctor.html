@@ -1,0 +1,82 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+
+<table align="center">
+    <form action="{% url 'savedoctor' %}"method="post">
+        {% csrf_token %}
+
+    <tr>
+        <th>
+            <h1 style="color:red"align="center">Add Doctor</h1>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DOCTOR_ID :</label>
+            <input type="number"placeholder="doctor_id"name="d_id"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DOCTOR_NAME :</label>
+            <input type="text"placeholder="doctor_name"name="d_name"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">LOGIN_NAME :</label>
+            <input type="text"placeholder="login_name"name="d_loginname"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">PASSWORD :</label>
+            <input type="password"placeholder="login_password"name="d_password"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DESIGNATION :</label>
+            <select name="d_deg">
+                <option>ENT</option>
+                <option>GENERAL</option>
+                <option>Dermatology</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DATE_OF_JOIN :</label>
+            <input type="date"placeholder="join_date"name="d_joindate"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">CONTACT :</label>
+            <input type="number"placeholder="phone_number"name="d_contact" max="9999999999"min="6666666666" required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">EMAIL :</label>
+            <input type="email"placeholder="email"name="d_email"required>
+        </th>
+    </tr>
+        <tr>
+        <th><label style="color: white">TYPE :</label>
+            <select name="d_type">
+                <option>Employee</option>
+                <option>Doctor</option>
+                <option>Finance Department</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button type="submit">REGISTER</button>
+        </th>
+         <th>
+            <button type="reset">RESET</button>
+        </th>
+
+
+
+    </tr>
+ </form>
+    {% if msg %}
+        <h2 style="color:orange" align="center">
+            {{ msg }}</h2>
+            {% endif %}
+</table>

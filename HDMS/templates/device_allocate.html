@@ -1,0 +1,57 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<h2 align="center"STYLE="color: red">ALLOCATE DEVICE</h2>
+{% if allocate %}
+<table align="center"style="color: white">
+<form action="{%  url 'save_allocate_device' %}"method="post">
+    {% csrf_token %}
+    <tr>
+        <th><lable>DEVICE_ALLOCATE_ID :</lable>
+            <input type="number"value="{{ allocate.DR_ID }}" name="allocate_id"required readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><lable>DOCTOR_ID :</lable>
+            <input type="number"value="{{ allocate.DOCTOR_ID }}"name="doc_id"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><lable>DOCTOR_NAME :</lable>
+            <input type="text"value="{{ allocate.DOCTOR_NAME }}"name="doc_name"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><lable>DEVICE_ID :</lable>
+            <input type="number"value="{{ allocate.DEVICE_ID }}"name="dev_id"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><lable>DEVICE_NAME :</lable>
+            <input type="text"value="{{ allocate.DEVICE_NAME }}"name="dev_name"readonly>
+        </th>
+    </tr>
+
+    <tr>
+        <th><lable>STATUS_ID :</lable>
+            <input type="number"value="3"name="status_id" required readonly>
+        </th>
+    </tr>
+    <tr>
+          <th>
+            <h5 align="center" style="color: paleturquoise">NOTE: 1-Pending/2-Forwarded/3-Device Allowcated/4-Reject(choose 2-only forwared to finance status_id)</h5>
+          </th>
+    </tr>
+    <tr>
+        <th>
+            <button type="submit">ALLOCATE</button>
+        </th>
+
+    </tr>
+</form>
+
+
+</table>
+{% endif %}
+{% if msg %}
+       <h1 align="center" style="color: red"> {{ msg }} </h1>
+        {% endif %}

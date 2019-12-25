@@ -1,0 +1,44 @@
+{% include 'hdms_Doctorhome.html' %}
+<br><br>
+<h4 align="center"style="color: orange">All Devices List</h4>
+<br>
+{% if Devices %}
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">DEVICE_ID</th>
+     <th width="100" style="background:red">DEVICE_NAME</th>
+     <th width="100" style="background:red">DATE_OF_PURCHASE</th>
+     <th width="100" style="background:red">COST_OF_DEVICES</th>
+     <th width="100" style="background:red">TOTAL_DEVICES</th>
+     <th width="100" style="background:red">SEND_REQUEST</th>
+
+ </tr>
+{% for x in Devices %}
+
+    <tr>
+        <th>
+            {{ x.Device_id }}
+        </th>
+        <th>
+            {{ x.Device_name }}
+
+    <th>
+            {{ x.Date_Of_Purchase}}
+        </th>
+    <th>
+            {{ x.Cost_Of_Devices }}
+        </th>
+        <th>
+            {{ x.Total_Devices }}
+        </th>
+    <th>
+        <a href="{% url "req_device" x.Device_id  %}">request</a>
+    </th>
+    </tr>
+{% endfor %}
+ </table>
+    {% else %}
+    <h3 align="center" style="color: white">no devicess available</h3>
+{% endif %}
+
+

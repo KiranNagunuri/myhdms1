@@ -1,0 +1,54 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<table align="center">
+    {% for x in d %}
+    <tr>
+        <th>
+            <h1 style="color:red"align="center">Edit Device</h1>
+        </th>
+    </tr>
+        <form action="{% url 'saveupdtdevice' %}"method="post">
+        {% csrf_token %}
+
+    <tr>
+        <th><label style="color: white">DEVICE_ID :</label>
+            <input type="number"value="{{ x.Device_id  }}" name="device_id"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">DEVICE_NAME :</label>
+            <input type="text"value="{{ x.Device_name }}" name="device_name"required>
+        </th>
+    </tr>
+
+    <tr>
+        <th><label style="color: white">DATE_OF_PURCHASE :</label>
+            <input type="date" value="{{ x.Date_Of_Purchase }}" name="date_of_purchase"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">COST OF DEVICE :</label>
+            <input type="number" value="{{ x.Cost_Of_Devices }}" name="device_cost" required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">TOTAL DEVICES :</label>
+            <input type="number"value="{{ x.Total_Devices }}" name="total_devices"required>
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+         <th>
+            <button type="reset">RESET</button>
+        </th>
+
+    </tr>
+        </form>
+    {% endfor %}
+{% if msg %}
+    <h4 align="center" style="color: red"> {{ msg }}</h4>
+{% endif %}
+</table>

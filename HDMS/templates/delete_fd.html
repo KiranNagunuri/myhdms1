@@ -1,0 +1,36 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<table align="center" style="color:deepskyblue">
+    <form method="post">
+        {% csrf_token %}
+    <tr>
+        <th>
+            <h3>EMP_IDNO :{{ object.Fd_id }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>  EMP_NAME :{{ object.Fd_name }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3> EMP_CONTACT :{{ object.Fd_contact }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+           <button type="submit">CONFIRM TO DELETE</button>
+        </th>
+
+    </tr>
+</form>
+
+<tr>
+        <th>
+            <form action="{% url 'delcancel_fd' %}">
+           <button type="submit">CANCEL</button>
+            </form>
+        </th>
+    </tr>
+    </table>

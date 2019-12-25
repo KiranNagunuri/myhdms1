@@ -1,0 +1,42 @@
+<html>
+<body>
+{% include 'hdms_adminhome.html' %}
+<br><br>
+
+<table align="center" style="color:deepskyblue">
+    <form method="post">
+        {% csrf_token %}
+    <tr>
+        <th>
+            <h3>DOCTOR_IDNO :{{ object.Doctor_id }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>  DOCTOR_NAME :{{ object.Doctor_name }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3> DOCTOR_DESIGNATION :{{ object.Designation }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+           <button type="submit">CONFIRM TO DELETE</button>
+        </th>
+
+    </tr>
+</form>
+
+<tr>
+        <th>
+            <form action="{% url 'delcancel' %}">
+           <button type="submit">CANCEL</button>
+            </form>
+        </th>
+    </tr>
+    </table>
+
+</body>
+</html>

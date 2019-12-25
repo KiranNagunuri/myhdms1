@@ -1,0 +1,66 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<table align="center">
+    <tr>
+        <form action="{% url 'getupdate_fd' %}"method="post">
+            {% csrf_token %}
+        <th style="color:coral">
+            FINANCE_DEPT_ID :<input type="number"placeholder="Enter Fd_id"name="id"required>
+        </th>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+        </form>
+
+    </tr>
+    </table>
+    <br><br><br><br>
+    <tr>
+        <th>
+            <a href="{% url 'view_fdlist' %}">
+                <h4 align="center" style="color:lavenderblush">VIEW ALL Finance_Dept LIST</h4>
+            </a>
+        </th>
+    </tr>
+   <br><br>
+{% if object_list %}
+   <table align="center" border="4"bgcolor="#90ee90">
+    <tr>
+     <th width="100"style="background:red">FD_ID</th>
+     <th width="100" style="background:red">FD_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+ </tr>
+    {% for x in object_list %}
+
+    <tr>
+        <th>
+            {{ x.Fd_id }}
+        </th>
+        <th>
+            {{ x.Fd_name }}
+        </th>
+        <th>
+            {{ x.Fd_contact}}
+        </th>
+
+    <th>
+            {{ x.Fd_loginname}}
+        </th>
+    <th>
+            {{ x.Fd_password }}
+        </th>
+    <th>
+            {{ x.Fd_doj}}
+        </th>
+    <th>
+            {{ x.Fd_email}}
+        </th>
+
+    </tr>
+{% endfor %}
+</table>
+{% endif %}

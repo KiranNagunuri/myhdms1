@@ -1,0 +1,46 @@
+{% include 'hdms_FinDephome.html' %}
+<br><br>
+<table align="center" style="color:deepskyblue">
+    <form method="post">
+        {% csrf_token %}
+    <tr>
+        <th>
+            <h3>EMP_IDNO :{{ object.Device_id }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3>  EMP_NAME :{{ object.Device_name }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3> EMP_CONTACT :{{ object.Date_Of_Purchase }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <h3> EMP_CONTACT :{{ object.Cost_Of_Devices }}</h3>
+        </th>
+    </tr>
+        <tr>
+        <th>
+            <h3> EMP_CONTACT :{{ object.Total_Devices }}</h3>
+        </th>
+    </tr>
+    <tr>
+        <th>
+           <button type="submit">CONFIRM TO DELETE</button>
+        </th>
+
+    </tr>
+</form>
+
+<tr>
+        <th>
+            <form action="{% url 'delcancel_device' %}">
+           <button type="submit">CANCEL</button>
+            </form>
+        </th>
+    </tr>
+    </table>

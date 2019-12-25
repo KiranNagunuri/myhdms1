@@ -1,0 +1,56 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<h4 align="center"style="color: orange">View/Delete Doctors</h4>
+<br>
+{% if Doctors %}
+ <table align="center" border="5" width="0" bgcolor="#90ee90">
+ <tr>
+     <th width="100"style="background:red">DOCTOR_ID</th>
+     <th width="100" style="background:red">DOCTOR_NAME</th>
+     <th width="100" style="background:red">CONTACT</th>
+     <th width="100" style="background:red">DESIGNATION</th>
+     <th width="100" style="background:red">LOGIN_NAME</th>
+     <th width="100" style="background:red">PASSWORD</th>
+     <th width="100" style="background:red">DATE_OF_JOIN</th>
+     <th width="100" style="background:red">EMAIL</th>
+     <th width="100" style="background:red">DELETE</th>
+
+
+
+ </tr>
+{% for x in Doctors %}
+
+    <tr>
+        <th>
+            {{ x.Doctor_id }}
+        </th>
+        <th>
+            {{ x.Doctor_name }}
+        </th>
+        <th>
+            {{ x.Contact }}
+        </th>
+        <th>
+            {{ x.Designation }}
+        </th>
+    <th>
+            {{ x.Login_name}}
+        </th>
+    <th>
+            {{ x.password }}
+        </th>
+    <th>
+            {{ x.Date_of_joining}}
+        </th>
+    <th>
+            {{ x.Email }}
+        </th>
+    <th style="background:lightgreen">
+        <a href="{% url 'del_doctor'  x.Doctor_id  %}" >Delete</a>
+    </th>
+    </tr>
+{% endfor %}
+   </table>
+{% else %}
+    <h2 align="center">NO DOCTORS ARE AVAILABLE</h2>
+{% endif %}

@@ -1,0 +1,72 @@
+{% include 'hdms_adminhome.html' %}
+<br><br>
+<table align="center">
+    {% for x in d %}
+    <tr>
+        <th>
+            <h1 style="color:red"align="center">Edit Finance_Department</h1>
+        </th>
+    </tr>
+        <form action="{% url 'saveupdtfd' %}"method="post">
+        {% csrf_token %}
+
+    <tr>
+        <th><label style="color: white">FD_ID :</label>
+            <input type="number"value="{{ x.Fd_id  }}" name="fd_id"readonly>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">FD_NAME :</label>
+            <input type="text"value="{{ x.Fd_name }}" name="fd_name"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">LOGIN_NAME :</label>
+            <input type="text"value="{{ x.Fd_loginname}}" name="fd_loginname"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">PASSWORD :</label>
+            <input type="text"value="{{ x.Fd_password }}" name="fd_password"required>
+        </th>
+    </tr>
+
+    <tr>
+        <th><label style="color: white">DATE_OF_JOIN :</label>
+            <input type="date" value="{{ x.Fd_doj }}" name="fd_joindate"required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">CONTACT :</label>
+            <input type="number" value="{{ x.Fd_contact }}" name="fd_contact" max="9999999999"min="6666666666" required>
+        </th>
+    </tr>
+    <tr>
+        <th><label style="color: white">EMAIL :</label>
+            <input type="email"value="{{ x.Fd_email }}" name="fd_email"required>
+        </th>
+    </tr>
+        <tr>
+        <th><label style="color: white">TYPE :</label>
+            <select name="fd_type">
+                <option >Employee</option>
+                <option >Doctor</option>
+                <option >Finance Department</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button type="submit">UPDATE</button>
+        </th>
+         <th>
+            <button type="reset">RESET</button>
+        </th>
+
+    </tr>
+        </form>
+    {% endfor %}
+{% if msg %}
+    <h4 align="center" style="color: red"> {{ msg }}</h4>
+{% endif %}
+</table>

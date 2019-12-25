@@ -1,0 +1,45 @@
+{% include "hdms_FinDephome.html" %}
+<br><br>
+
+
+<h4 align="center"style="color: orange">data forwarded from Admin</h4>
+
+{% if ddr %}
+    <h5 align="center"style="color: deepskyblue">STATUS_ID : 1-PENDING, 2-FORWARDED,3-DEVICE_ALLOCATED,4-REJECTED</h5>
+    <table align="center" style="color: white"border="2" width="1000">
+  <tr bgcolor="red">
+        <th>DR_ID</th>
+        <th>DOCT_ID</th>
+        <th>DOCT_NAME</th>
+        <th>DEVICE_ID</th>
+        <th>DEVICE_NAME</th>
+        <th>STATUS</th>
+        <th>DEVICE_ALLOCATE</th>
+    </tr>
+    {% for x in ddr %}
+    <tr bgcolor="green">
+        <th>{{x.DR_ID }}</th>
+        <th>{{ x.DOCTOR_ID }}</th>
+        <th>{{ x.DOCTOR_NAME}}</th>
+        <th>{{ x.DEVICE_ID }}</th>
+        <th>{{ x.DEVICE_NAME }}</th>
+        <th>{{ x.STATUS_ID }}</th>
+        <th>
+            <a href="{% url "allowcate" x.DR_ID  %}">
+            Allocate
+            </a>
+        </th>
+
+    </tr>
+{% endfor %}
+    </table>
+
+{% endif %}
+
+
+
+{% if msg %}
+<h4 align="center" style="color: red"> {{ msg }}</h4>
+{% endif %}
+
+
